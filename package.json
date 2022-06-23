@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:web": "webpack serve --config webpack/web/webpack.config.js --env env=dev --open",
     "build:web": "webpack --config webpack/web/webpack.config.js --env env=prod",
-    "start:server": "node build/server/server.js PORT=5000",
+    "start:server": "node build/server/server.js",
+    "dev:server": "nodemon --exec \"ts-node\" server/index.ts",
     "build:server": "rm -rf build/server && webpack --config webpack/server/webpack.config.js"
   },
   "keywords": [],
@@ -42,6 +43,7 @@
     "@types/react": "^18.0.12",
     "@types/react-dom": "^18.0.5",
     "@types/react-syntax-highlighter": "^15.5.2",
+    "@types/styled-components": "^5.1.25",
     "babel-loader": "^8.2.5",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",

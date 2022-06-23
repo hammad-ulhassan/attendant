@@ -1,15 +1,35 @@
-const express = require('express');
+// const express = require('express');
 const dotenv = require('dotenv');
-
+import express from 'express';
 dotenv.config();
 
 const app = express();
-const port = process.env.SERVERPORT || 3039;
+const port: string | number = process.env.SERVERPORT || 3039;
+const token: string | undefined = process.env.ACCESS_TOKEN
 const cors = require('cors');
 
 app.use(cors({
   origin: "*"
 }))
+
+// export const getGist = async (id: string) => {
+//   const response = await fetch(`https://api.github.com/gists/${id}`, {
+//     headers: new Headers({
+//       Authorization: `Bearer ${API_KEY}`,
+//       Accept: "application/json",
+//     }),
+//   });
+//   if (!response.ok) {
+//     throw new Error("Gist Data coud not be fetched!");
+//   } else {
+//     const res: IGist = await response.json();
+//     return res;
+//   }
+// };
+
+app.get('/gistData', (req:any, res:any)=>{
+  console.log(req)
+})
 
 
 app.get('/health', (req: any, res: any) => {
